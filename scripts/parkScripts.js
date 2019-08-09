@@ -37,10 +37,9 @@ function insertTableData(list, dataBody) {
         else
             cell4.innerHTML = "&nbsp";
 
-        //TODO: open in new window
         let cell5 = row.insertCell(4);
         if(list.Visit) 
-            cell5.innerHTML = "<a href=" + list.Visit + ">" + list.Visit + "</a>";
+            cell5.innerHTML = "<a href=" + list.Visit + " target=\"_blank\">" + list.Visit + "</a>";
             
         let cell6 = row.insertCell(5);
         cell6.innerHTML = "Latitude: " + list.Latitude + "<br>Longitude: " + list.Longitude;
@@ -214,7 +213,8 @@ window.onload = function()
 
     //search by park type button
     const parkSearchBtn = document.getElementById("parkSearchBtn");
-    parkSearchBtn.onclick = function() {
+    parkSearchBtn.onclick = function(event) {
+        event.preventDefault();
         resetTable(table);
         table.style.display = 'initial';
         displayByParkType(parkField.value, objs);
@@ -222,7 +222,8 @@ window.onload = function()
     
     //search by location button
     const stateSearchBtn = document.getElementById("stateSearchBtn");
-    stateSearchBtn.onclick = function() {
+    stateSearchBtn.onclick = function(event) {
+        event.preventDefault();
         resetTable(table);
         table.style.display = 'initial';
         displayByLocation(stateField.value, objs);
@@ -230,7 +231,8 @@ window.onload = function()
 
     //find all national parks
     const nationalSearchBtn = document.getElementById("nationalSearchBtn");
-    nationalSearchBtn.onclick = function() {
+    nationalSearchBtn.onclick = function(event) {
+        event.preventDefault();
         resetTable(table);
         table.style.display = 'initial';
         displayAllNationalParks(objs);

@@ -42,39 +42,38 @@
 
     <!-- Main section for activities-->
     <main class="m-4">
-      <form class="row" action="#" method="GET">  
-        <fieldset class="col-4 offset-4 border-success">
-          <legend class="text-center display-4 green obli">Explore</legend>
+      <form action="#" method="GET">  
+        <fieldset class="border-success">
+          <legend class="text-center display-5 darkGreen text-white obli borderimg">Explore the Mountains</legend>
           
-          <!-- Drop down selection for what category -->
-          <div class="my-3">
-            <label for="mountainField">Mountains:</label>
-            <select class="custom-select mb-2" id="mountainField">
-              <option selected value="0">Choose...</option>
-            </select>
-            <button type="submit" class="btn btn-success" id="mountainSearchBtn" value="Search Mountains">Search Mountains</button>
-          </div>
-
-          <div class="my-3">
-            <button type="button" class="btn btn-secondary" id="resetBtn">Reset</button>
+          <div class="container">
+            <div class="row">
+              <!-- Drop down selection for what category -->
+              <div class="col-6 my-3">
+                <label for="mountainField">Mountains:</label>
+                <select class="custom-select mb-2" id="mountainField">
+                  <option selected value="0">Choose...</option>
+                </select>
+              </div>
+              <!-- Search and Clear buttons -->
+              <div class="col-4 mt-5">
+                <button type="submit" class="btn btn-success" id="mountainSearchBtn" value="Search Mountains">Search Mountains</button>
+                <button type="button" class="btn btn-secondary" id="resetBtn">Clear</button>
+              </div>
+            </div>
           </div>
         </fieldset>
       </form>
-
-      <table class="table" id="tours">
-        <thead class="thead-dark">
-          <tr>
-            <th>Mountain Name</th>
-            <th>Elevation</th>
-            <th>Effort</th>
-            <th>Image</th>
-            <th>Description</th>
-            <th>Coordinates</th>
-          </tr>
-        </thead>
-        <tbody id="dataBody">
-        </tbody>
-      </table>
+      
+      <!-- Table to hold all found data fields-->
+      <div class="container">
+        <div class="row">
+          <table class="offset-md-2 col-md-8 table table-striped table-hover table-dark" id="tours">
+            <tbody id="dataBody">
+            </tbody>
+          </table>
+        </div>
+      </div>
     </main>
 
     <footer class="container">
