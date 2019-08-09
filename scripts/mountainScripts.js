@@ -67,10 +67,6 @@ function insertTableData(list, dataBody) {
             function(timeObj) {
                 cell6_2.innerHTML = "Latitude: " + list.coords.lat + "<br>Longitude: " + list.coords.lng;
                 cell7_2.innerHTML = "Sunrise: " + timeObj.results.sunrise + "<br>Sunset: " + timeObj.results.sunset;
-
-                let x = timeObj.results.sunrise
-
-                let y = new Date(x)
         });
 }
 
