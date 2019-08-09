@@ -100,3 +100,13 @@ body {
 .mastfoot {
   color: rgba(255, 255, 255, .5);
 }
+
+.borderimg {
+  border: 10px solid transparent;
+  padding: 15px;
+  border-image: url(../images/border.png) 20% round;
+}
+
+.darkGreen {
+  background-color: #098b09;
+}

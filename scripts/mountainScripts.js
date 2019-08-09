@@ -9,36 +9,69 @@
 * Insertion function for table based on data
 * 
 * @param row (Object) - Inserts row after every data object
+* @param img (Object) - Create a img to show
 * @param cell1 (Object) - Populate specified cell with data
 * @param cell2 (Object) - Populate specified cell with data
 * @param cell3 (Object) - Populate specified cell with data
 * @param cell4 (Object) - Populate specified cell with data
 * @param cell5 (Object) - Populate specified cell with data
 * @param cell6 (Object) - Populate specified cell with data
+* @param cell7 (Object) - Populate specified cell with data
 */
 function insertTableData(list, dataBody) {
-        let row = dataBody.insertRow(-1);
         let img = document.createElement("img");
-        img.src = list.img;
+        img.src = "images/" + list.img;
         img.alt = list.img;
 
-        let cell1 = row.insertCell(0);
-        cell1.innerHTML = list.name;
+        let row1 = dataBody.insertRow(-1);
+        let cell1_1 = row1.insertCell(0);
+        cell1_1.innerHTML = "Mountain Name";
+        let cell1_2 = row1.insertCell(1);
+        cell1_2.innerHTML = list.name;
 
-        let cell2 = row.insertCell(1);
-        cell2.innerHTML = list.elevation;
+        let row2 = dataBody.insertRow(-1);
+        let cell2_1 = row2.insertCell(0);
+        cell2_1.innerHTML = "Elevation";
+        let cell2_2 = row2.insertCell(1);
+        cell2_2.innerHTML = list.elevation;
 
-        let cell3 = row.insertCell(2);
-        cell3.innerHTML = list.effort;
+        let row3 = dataBody.insertRow(-1);
+        let cell3_1 = row3.insertCell(0);
+        cell3_1.innerHTML = "Effort";
+        let cell3_2 = row3.insertCell(1);
+        cell3_2.innerHTML = list.effort;
 
-        let cell4 = row.insertCell(3);
-        cell4.innerHTML = img;
+        let row4 = dataBody.insertRow(-1);
+        let cell4_1 = row4.insertCell(0);
+        cell4_1.innerHTML = "Image";
+        let cell4_2 = row4.insertCell(1);
+        cell4_2.appendChild(img);
 
-        let cell5 = row.insertCell(4);
-        cell5.innerHTML = list.desc;
+        let row5 = dataBody.insertRow(-1);
+        let cell5_1 = row5.insertCell(0);
+        cell5_1.innerHTML = "Description";
+        let cell5_2 = row5.insertCell(1);
+        cell5_2.innerHTML = list.desc;
 
-        let cell6 = row.insertCell(5);
-        cell6.innerHTML = "lat: " + list.coords.lat + "\nlng: " + list.coords.lng;
+        let row6 = dataBody.insertRow(-1);
+        let cell6_1 = row6.insertCell(0);
+        cell6_1.innerHTML = "Coordinates";
+        let cell6_2 = row6.insertCell(1);
+
+        let row7 = dataBody.insertRow(-1);
+        let cell7_1 = row7.insertCell(0);
+        cell7_1.innerHTML = "Best View Times";
+        let cell7_2 = row7.insertCell(1);
+
+        $.getJSON("https://api.sunrise-sunset.org/json?lat=" + list.coords.lat + "&lng=" + list.coords.lng + "&date=today", 
+            function(timeObj) {
+                cell6_2.innerHTML = "Latitude: " + list.coords.lat + "<br>Longitude: " + list.coords.lng;
+                cell7_2.innerHTML = "Sunrise: " + timeObj.results.sunrise + "<br>Sunset: " + timeObj.results.sunset;
+
+                let x = timeObj.results.sunrise
+
+                let y = new Date(x)
+        });
 }
 
 /*
@@ -92,7 +125,8 @@ window.onload = function()
 
     //search mountain info
     const mountainSearchBtn = document.getElementById("mountainSearchBtn");
-    mountainSearchBtn.onclick = function() {
+    mountainSearchBtn.onclick = function(event) {
+        event.preventDefault();
         resetTable(table);
         table.style.display = 'initial';
         displayResults(mountainField.value, objs);

@@ -16,10 +16,19 @@ fieldset {
 
 .obli {
     font-style: oblique;
+    font-weight: bold;
+}
+
+.text-white {
+    color: #ffffff;
 }
 
 .green {
     color: #00dd00;
+}
+
+.darkGreen {
+    background-color: #098b09;
 }
 
 .brown {
@@ -32,4 +41,10 @@ fieldset {
 
 .mt-6 {
     margin-top: 3.5rem;
+}
+
+.borderimg {
+    border: 10px solid transparent;
+    padding: 15px;
+    border-image: url(../images/border.png) 20% round;
 }
