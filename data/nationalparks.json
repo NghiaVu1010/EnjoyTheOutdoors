@@ -1705,7 +1705,7 @@
     "City": "Bettles",
     "State": "Alaska",
     "ZipCode": 99726,
-    "Phone": "P.O. Box 30",
+    "Phone": 0,
     "Fax": "(907) 692-5400",
     "Latitude": 67.251868,
     "Longitude": -150.184189,

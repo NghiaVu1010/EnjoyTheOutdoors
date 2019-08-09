@@ -1,0 +1,35 @@
+body {
+    background-color: #C0C0C0;
+}
+
+fieldset { 
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 10px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 4px inset;
+}
+
+.obli {
+    font-style: oblique;
+}
+
+.green {
+    color: #00dd00;
+}
+
+.brown {
+    color: #ff8f0e;
+}
+
+.white {
+    color: #ffffff;
+}
+
+.mt-6 {
+    margin-top: 3.5rem;
+}
